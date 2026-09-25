@@ -1,0 +1,895 @@
+
+*{
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    background: #071426;
+
+    color: #eef5ff;
+
+    font-family: Arial, sans-serif;
+
+}
+
+
+/* HEADER */
+
+header {
+
+    height: 60px;
+
+    background: #0d1e38;
+
+    border-bottom: 1px solid #294568;
+
+    padding: 18px 22px;
+
+    font-size: 20px;
+
+    color: #6edcff;
+
+}
+
+
+header span {
+
+    font-size: 13px;
+
+    color: #aebfdb;
+
+    margin-left: 25px;
+
+}
+
+
+/* LAYOUT */
+
+.layout {
+
+    display: grid;
+
+    grid-template-columns: 235px 1fr;
+
+    min-height: calc(100vh - 60px);
+
+}
+
+
+/* SIDEBAR */
+
+aside {
+
+    background: #091a31;
+
+    border-right: 1px solid #294568;
+
+    padding: 15px;
+
+}
+
+
+button {
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin: 4px 0;
+
+    border-radius: 8px;
+
+    border: 1px solid #36557b;
+
+    background: #142b4d;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+button:hover {
+
+    filter: brightness(1.2);
+
+}
+
+
+.mode.active {
+
+    background: #087e62;
+
+}
+
+
+.primary {
+
+    background: #1389ee;
+
+    border: none;
+
+}
+
+
+label {
+
+    display: block;
+
+    margin: 12px 0;
+
+    color: #b9c9e4;
+
+    font-weight: bold;
+
+}
+
+
+input:not([type="checkbox"]),
+select {
+
+    width: 100%;
+
+    margin-top: 6px;
+
+    padding: 9px;
+
+    background: #071426;
+
+    color: white;
+
+    border: 1px solid #3b587c;
+
+    border-radius: 7px;
+
+}
+
+
+hr {
+
+    border: none;
+
+    border-top: 1px solid #294568;
+
+    margin: 15px 0;
+
+}
+
+
+/* MAIN */
+
+main {
+
+    padding: 15px;
+
+}
+
+
+.topbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    background: #087e62;
+
+    padding: 13px 17px;
+
+    border-radius: 9px;
+
+}
+
+
+.topbar h1 {
+
+    margin: 0;
+
+    font-size: 19px;
+
+}
+
+
+/* WORKSPACE */
+
+.workspace {
+
+    margin-top: 14px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 310px;
+
+    min-height: 510px;
+
+    background: #0d1b31;
+
+    border: 1px solid #294568;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+}
+
+
+/* TREE */
+
+.tree {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: visible;
+
+    position: relative;
+
+    padding: 25px;
+    
+
+}
+
+
+.nodewrap {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.node {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: bold;
+
+    border: 3px solid white;
+
+    transition: .3s;
+
+}
+
+
+.node.RED {
+
+    background: #e53d47;
+
+}
+
+
+.node.BLACK {
+
+    background: #101820;
+
+}
+
+
+/* HIGHLIGHTS */
+
+.node.current {
+
+    outline: 5px solid #ffd23d;
+
+    box-shadow: 0 0 22px #ffd23d;
+
+}
+
+
+.node.parent {
+
+    outline: 5px solid #1688ee;
+
+}
+
+
+.node.uncle {
+
+    outline: 5px solid #9a4dde;
+
+}
+
+
+.node.sibling {
+
+    outline: 5px solid #25cf83;
+
+}
+
+
+.node.near {
+
+    outline: 5px solid #ff9d3d;
+
+}
+
+
+.node.far {
+
+    outline: 5px solid #21d4e6;
+
+}
+
+
+/* CHILDREN */
+
+.children {
+
+    display: flex;
+
+    gap: 45px;
+
+    margin-top: 35px;
+
+}
+
+
+.child {
+
+    min-width: 105px;
+
+    text-align: center;
+
+}
+
+
+.nil {
+
+    color: #60789c;
+
+    font-size: 11px;
+
+    margin-top: 8px;
+
+}
+
+
+/* INSPECTOR */
+
+.inspector {
+
+    padding: 18px;
+
+    border-left: 1px solid #294568;
+
+    background: #09182c;
+
+}
+
+
+.case {
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    color: #ffd23d;
+
+}
+
+
+.inspector p {
+
+    color: #bdd0e9;
+
+    line-height: 1.5;
+
+}
+
+
+/* STATS */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+
+}
+
+
+.stats div {
+
+    background: #102846;
+
+    padding: 8px;
+
+    border-radius: 6px;
+
+    color: #aabedc;
+
+}
+
+
+.stats b {
+
+    float: right;
+
+    color: white;
+
+}
+
+
+/* ROTATION ARROW */
+
+.arrow {
+
+    position: absolute;
+
+    padding: 9px 15px;
+
+    background: #102d4c;
+
+    border: 2px solid #57d6ff;
+
+    border-radius: 25px;
+
+    font-weight: bold;
+
+    animation: pulse .8s infinite alternate;
+
+}
+
+
+.arrow.left {
+
+    left: 43%;
+
+    top: 48%;
+
+}
+
+
+.arrow.right {
+
+    right: 43%;
+
+    top: 48%;
+
+}
+
+
+@keyframes pulse {
+
+    from {
+
+        transform: scale(.9);
+
+    }
+
+    to {
+
+        transform: scale(1.12);
+
+        box-shadow: 0 0 18px #57d6ff;
+
+    }
+
+}
+
+
+/* CASES */
+
+.cases {
+
+    margin-top: 14px;
+
+    background: #0d1b31;
+
+    border: 1px solid #294568;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+}
+
+
+.case-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+}
+
+
+.case-card {
+
+    padding: 12px;
+
+    border: 1px solid #385574;
+
+    border-radius: 8px;
+
+    min-height: 145px;
+
+}
+
+
+.case1 {
+
+    border-top: 4px solid #f05b64;
+
+}
+
+
+.case2 {
+
+    border-top: 4px solid #5da5ff;
+
+}
+
+
+.case3 {
+
+    border-top: 4px solid #ffab4a;
+
+}
+
+
+.case4 {
+
+    border-top: 4px solid #35d98a;
+
+}
+
+
+@media(max-width:900px) {
+
+    .layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .workspace {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .case-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .inspector {
+
+        border-left: 0;
+
+        border-top: 1px solid #294568;
+
+    }
+
+}
+
+/* ==============================
+   TREE CONNECTION LINES
+   ============================== */
+
+.tree-canvas {
+    position: relative;
+    width: 50%;
+    min-height: 400px;
+    overflow: auto;
+    padding: 40px;
+}
+
+.tree-connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
+}
+
+.tree-root {
+    position: relative;
+    z-index: 2;
+}
+
+.tree-node {
+    position: relative;
+    z-index: 3;
+}
+
+.tree-edge {
+    stroke: #64748b;
+    stroke-width: 3;
+    fill: none;
+}
+
+.tree-edge.active {
+    stroke: #38bdf8;
+    stroke-width: 5;
+}
+
+.tree-edge.animated {
+    stroke-dasharray: 10 7;
+    animation: edgeFlow 0.8s linear infinite;
+}
+
+@keyframes edgeFlow {
+    to {
+        stroke-dashoffset: -17;
+    }
+}
+
+/* ==========================================
+   COMPACT TREE - FIT FULL TREE ON SCREEN
+========================================== */
+
+.tree-canvas {
+    position: relative;
+    width: 100%;
+    height: 560px;
+    overflow: auto;
+    padding: 20px;
+}
+
+/* Main tree */
+#tree {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    min-width: 650px;
+    min-height: 500px;
+
+    padding: 15px;
+}
+
+/* Node */
+#tree .node {
+    width: 40px;
+    height: 40px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    border-radius: 50%;
+    border-width: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tree level spacing */
+#tree .children {
+    display: flex;
+
+    gap: 25px;
+
+    margin-top: 20px;
+}
+
+/* Child width */
+#tree .child {
+    min-width: 65px;
+
+    padding: 0 3px;
+
+    text-align: center;
+}
+
+/* NIL */
+#tree .nil {
+    font-size: 9px;
+    margin-top: 5px;
+}
+
+/* Connection SVG */
+.tree-connections {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Connection line */
+.tree-edge {
+    stroke: #64748b;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* Highlighted connection */
+.tree-edge.active {
+    stroke: #38bdf8;
+    stroke-width: 4;
+}
+
+/* Animated connection */
+.tree-edge.animated {
+    stroke-dasharray: 8 6;
+    animation: edgeFlow 0.8s linear infinite;
+}
+
+@keyframes edgeFlow {
+    to {
+        stroke-dashoffset: -14;
+    }
+}
+
+/* ==========================================
+   FIX HORIZONTAL TREE SCROLLING
+========================================== */
+
+.tree-canvas {
+    position: relative;
+    width: 100%;
+    height: 560px;
+
+    /* ONLY outer container should scroll */
+    overflow: auto;
+
+    padding: 20px;
+}
+
+
+/* Tree itself should NOT scroll */
+#tree {
+    position: relative;
+
+    overflow: visible;
+
+    /* allow complete tree to have its own width */
+    width: max-content;
+    min-width: 650px;
+
+    min-height: 500px;
+
+    margin: 0 auto;
+
+    z-index: 2;
+}
+
+
+/* Arrow stays with the tree */
+#tree .arrow {
+    position: absolute;
+}
+
+
+/* SVG must cover complete tree */
+.tree-connections {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ==========================================
+   FIXED TREE SIZE CONTROLS
+========================================== */
+
+.tree-canvas {
+    position: relative;
+}
+
+/* Controller stays at screen corner of tree area */
+.tree-size-controls {
+    position: sticky;
+    top: 12px;
+    right: 12px;
+
+    width: fit-content;
+
+    margin-left: auto;
+    margin-right: 12px;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    background: #09182c;
+    border: 1px solid #36557b;
+    border-radius: 10px;
+
+    padding: 5px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.35);
+}
+
+.tree-size-controls button {
+    width: 32px;
+    height: 32px;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 20px;
+    line-height: 1;
+
+    background: #142b4d;
+    border: 1px solid #36557b;
+    border-radius: 7px;
+}
+
+.tree-size-controls button:hover {
+    background: #1389ee;
+}
+
+#treeSizeValue {
+    min-width: 48px;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    color: #b9c9e4;
+}
+
+.tree-area {
+    position: relative;
+    overflow: hidden;
+}
+
+.tree-size-controls {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    background: #09182c;
+    border: 1px solid #36557b;
+    border-radius: 10px;
+    padding: 5px;
+}

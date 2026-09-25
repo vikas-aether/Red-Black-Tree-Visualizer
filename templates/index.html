@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        Red-Black Tree Visualizer
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    🌳
+
+    <b>
+        Red-Black Tree Visualizer
+    </b>
+
+    <span>
+        DAA • CLRS • Animated Fix-Up
+    </span>
+
+</header>
+
+
+<div class="layout">
+
+
+<!-- ================================================= -->
+<!-- SIDEBAR -->
+<!-- ================================================= -->
+
+<aside>
+
+    <button
+        id="insertMode"
+        class="mode active"
+    >
+        ➕ Insertion
+    </button>
+
+
+    <button
+        id="deleteMode"
+        class="mode"
+    >
+        ➖ Deletion
+    </button>
+
+
+    <label>
+
+        Keys
+
+        <input
+            id="keys"
+            placeholder="example=41,38,31,12,19,8"
+        >
+
+    </label>
+
+
+    <label
+        id="initialBox"
+        style="display:none"
+    >
+
+        Initial Tree
+
+        <input
+            id="initial"
+            placeholder="example=41,38,31,12,19,8"
+        >
+
+    </label>
+
+
+    <button
+        id="start"
+        class="primary"
+    >
+        Start Visualization
+    </button>
+
+
+    <button id="clrs">
+
+        Load CLRS Demo
+
+    </button>
+
+    <button id="resetValues" type="button">↻ Reset Values</button>
+
+
+    <hr>
+
+
+    <h3>
+        Step Controls
+    </h3>
+
+
+    <button id="previous">
+        ◀ Previous
+    </button>
+
+
+    <button id="play">
+        ▶ Play
+    </button>
+
+
+    <button id="next">
+        Next ▶
+    </button>
+
+
+    <label>
+
+        Speed
+
+        <select id="speed">
+
+            <option value="1500">
+                0.5x
+            </option>
+
+            <option
+                value="900"
+                selected
+            >
+                1x
+            </option>
+
+            <option value="500">
+                1.5x
+            </option>
+
+            <option value="250">
+                2x
+            </option>
+
+        </select>
+
+    </label>
+
+
+    <hr>
+
+
+    <label>
+
+        <input
+            type="checkbox"
+            id="arrows"
+            checked
+        >
+
+        Animated arrows
+
+    </label>
+
+
+    <label>
+
+        <input
+            type="checkbox"
+            id="roles"
+            checked
+        >
+
+        Highlight roles
+
+    </label>
+
+
+    <h3>
+        Legend
+    </h3>
+
+
+    <p>🟡 Current / x</p>
+
+    <p>🔵 Parent</p>
+
+    <p>🟣 Uncle</p>
+
+    <p>🟢 Sibling</p>
+
+    <p>🟠 Near Nephew</p>
+
+    <p>🔷 Far Nephew</p>
+
+</aside>
+
+
+<!-- ================================================= -->
+<!-- MAIN -->
+<!-- ================================================= -->
+
+<main>
+
+
+<section class="topbar">
+
+    <h1 id="heading">
+
+        Insertion Visualization
+
+    </h1>
+
+
+    <b id="step">
+
+        0 / 0
+
+    </b>
+
+</section>
+
+
+<section class="workspace">
+
+    <div class="tree-area">
+
+        <div class="tree-size-controls">
+            <button id="treeSmall">−</button>
+            <span id="treeSizeValue">100%</span>
+            <button id="treeLarge">+</button>
+        </div>
+
+        <div id="treeCanvas" class="tree-canvas">
+
+            <svg id="treeConnections" class="tree-connections"></svg>
+
+            <div id="tree" class="tree">
+                Start a simulation.
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="inspector">
+    <div
+        id="case"
+        class="case"
+    >
+
+        Ready
+
+    </div>
+
+
+    <p id="detail">
+
+        Every case, recolor and
+        rotation is a separate frame.
+
+    </p>
+
+
+    <hr>
+
+
+    <h3>
+        Current Roles
+    </h3>
+
+
+    <p id="role">
+
+        —
+
+    </p>
+
+
+    <hr>
+
+
+    <h3>
+        Tree Information
+    </h3>
+
+
+    <div class="stats">
+
+
+    <div>
+        Nodes
+        <b id="nodes">0</b>
+    </div>
+
+
+    <div>
+        Height
+        <b id="height">0</b>
+    </div>
+
+
+    <div>
+        Red
+        <b id="red">0</b>
+    </div>
+
+
+    <div>
+        Black
+        <b id="black">0</b>
+    </div>
+
+
+    </div>
+
+
+    <p id="valid">
+        —
+    </p>
+
+
+    <h3>
+        In-order
+    </h3>
+
+
+    <p id="order">
+        —
+    </p>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- CASE DIAGRAMS -->
+<!-- ================================================= -->
+
+<section class="cases">
+
+
+<h2>
+
+    CLRS Deletion Cases —
+    x is RIGHT child
+
+</h2>
+
+
+<div class="case-grid">
+
+
+<div class="case-card case1">
+
+    <b>
+        CASE 1
+    </b>
+
+    <h3>
+        Sibling is RED
+    </h3>
+
+    <div>
+        P 🔴 W ● X
+    </div>
+
+    <p>
+        Recolor →
+        RIGHT-ROTATE(P)
+    </p>
+
+</div>
+
+
+<div class="case-card case2">
+    <b>
+        CASE 2
+    </b>
+
+    <h3>
+        Sibling BLACK
+    </h3>
+
+    <div>
+        P • W • X
+    </div>
+
+    <p>
+        Both nephews BLACK →<br>
+        W RED
+    </p>
+</div>
+
+
+<div class="case-card case3">
+    <b>
+        CASE 3
+    </b>
+
+    <h3>
+        Near Nephew RED
+    </h3>
+
+    <div>
+        P • W 🔴 Near
+    </div>
+
+    <p>
+        Recolor →<br>
+        LEFT-ROTATE(W)
+    </p>
+</div>
+
+
+<div class="case-card case4">
+    <b>
+        CASE 4
+    </b>
+
+    <h3>
+        Far Nephew RED
+    </h3>
+
+    <div>
+        P • W 🔴 Far
+    </div>
+
+    <p>
+        Recolor →<br>
+        RIGHT-ROTATE(P)
+    </p>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>
