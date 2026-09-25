@@ -41,7 +41,44 @@ The project is based on the algorithms described in **CLRS
 
 -python app.py
 
-## Open:
+The application shows the tree after each operation along with the corresponding Red-Black Tree fix-up process.
+
+## 🛠️ Technologies Used
+
+Python
+HTML5
+CSS3
+JavaScript
+Red-Black Tree
+CLRS Algorithms
+
+## 📂 Project Structure
+
+Red-Black-Tree-Visualizer/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+│
+├── templates/
+│   └── index.html
+│
+└── static/
+    ├── style.css
+    └── app.js
+    
+## ⚙️ Run Locally
+1. Clone the repository
+git clone https://github.com/vikas-aether/Red-Black-Tree-Visualizer.git
+
+3. Open the project
+cd Red-Black-Tree-Visualizer
+
+5. Create virtual environment
+   -python -m venv venv
+   -venv\Scripts\activate
+
+## 📖 Open:
 
 http://127.0.0.1:5000
 
@@ -50,7 +87,7 @@ http://127.0.0.1:5000
 The default insertion sequence is:
 👉 text :- 41 → 38 → 31 → 12 → 19 → 8
 
-## Deployment
+## 🌐Deployment
 
 - The application is deployed using Render.
 👉 Live Demo
