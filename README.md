@@ -1,28 +1,67 @@
-# Red-Black Tree DAA WebApp
+# 🌳 Red-Black Tree Visualizer 
 
-#Live Demo
-==> Available at your primary URL 👉 https://red-black-tree-visualizer.onrender.com
+An interactive web-based Red-Black Tree simulator designed for understanding
+Data Structures and Algorithms (DAA) and CLRS Red-Black Tree operations.
 
-Features:
-- Insertion and deletion
-- CLRS fix-up cases
-- Step-by-step Previous / Next
-- Play/Pause animation
-- Recoloring and rotations in the inspector
-- Tree colors, in-order traversal, validation
-- Deletion mode separates the starting tree from deletion sequence
+## 🚀 Live Demo
 
-Run:
-```powershell
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-python app.py
-```
-Open http://127.0.0.1:5000
+👉 Open Live Demo URL https://red-black-tree-visualizer.onrender.com
 
-Insertion demo: `41,38,31,12,19,8`
+## 📌 About the Project
 
-Deletion demo:
-Starting tree: `41,38,31,12,19,8`
-Delete sequence: `41,19,8`
+This project visualizes Red-Black Tree insertion and deletion operations
+step-by-step. It demonstrates how rotations, recoloring, and fix-up cases
+maintain the Red-Black Tree properties.
+
+The project is based on the algorithms described in **CLRS
+(Introduction to Algorithms)**.
+
+## ✨ Features
+
+- 🌳 Interactive Red-Black Tree visualization
+- ➕ Step-by-step insertion
+- ➖ Step-by-step deletion
+- 🔄 Left and right rotations
+- 🎨 Node recoloring visualization
+- 📚 CLRS insertion fix-up cases
+- 🛠️ CLRS deletion fix-up cases
+- ▶️ Play / Pause animation
+- ⏮️ Previous and Next step controls
+- 🔍 Current node and parent/uncle/sibling highlighting
+- 📊 Tree statistics
+- 💻 Responsive web interface
+
+## install dependencies
+
+-python -m venv venv
+-venv\Scripts\activate
+-pip install -r requirements.txt
+
+## Run Application
+
+-python app.py
+
+## Open:
+
+http://127.0.0.1:5000
+
+## 🧪 CLRS Example
+
+The default insertion sequence is:
+👉 text :- 41 → 38 → 31 → 12 → 19 → 8
+
+## Deployment
+
+- The application is deployed using Render.
+👉 Live Demo
+
+## 🎓 Academic Purpose
+
+This project was developed as a DAA educational project to make Red-Black Tree insertion, deletion, rotations, recoloring, and fix-up cases easier to understand through interactive visualization.
+
+
+## 👨‍💻 Author
+
+Vikas Kumar
+B.Tech – Artificial Intelligence & Machine Learning
+
